@@ -7,7 +7,7 @@ def hist_skip(inFname, bandIndex, outFname, nbuckets=10000):
  
   src = gdal.Open(inFname)
   band = src.GetRasterBand(int(bandIndex))
-  percentiles = [ float(percentileMin), float(percentileMax) ]
+  #percentiles = [ float(percentileMin), float(percentileMax) ]
   # Use GDAL to find the min and max
   (minVal, maxVal) = band.ComputeRasterMinMax(False)
   print "lo="+str(minVal)
@@ -39,4 +39,4 @@ if __name__ == '__main__':
   if len(sys.argv) == 6:
     hist_skip(sys.argv[1],sys.argv[2],sys.argv[3],sys.argv[4],sys.argv[5])
   else:
-print "python hist_skip.py INPUT-RASTER BAND-INDEX PERCENTILE-MIN PERCENTILE-MAX OUTPUT-RASTER"
+    print "python hist_skip.py INPUT-RASTER BAND-INDEX PERCENTILE-MIN PERCENTILE-MAX OUTPUT-RASTER"
